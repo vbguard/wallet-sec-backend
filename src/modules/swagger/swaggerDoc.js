@@ -5,9 +5,9 @@ const options = {
   swaggerDefinition: {
     openapi: "3.0.0",
     info: {
-      title: "Rashchitalochka API",
+      title: "MyWallet API",
       version: "1.0.0",
-      description: "Express API for Rashchitalochka, view what routes pass"
+      description: "view what routes pass"
     },
     basePath: "/api"
   },
