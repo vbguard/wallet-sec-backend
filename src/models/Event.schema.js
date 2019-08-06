@@ -3,8 +3,7 @@ const mongoose = require("mongoose");
 const EventSchema = new mongoose.Schema(
   {
     date: {
-      type: Number,
-      required: true
+      type: Number
     },
     category: {
       type: String
@@ -14,20 +13,16 @@ const EventSchema = new mongoose.Schema(
       default: ""
     },
     amount: {
-      type: Number,
-      required: true
+      type: Number
     },
     type: {
-      type: String,
-      required: true
+      type: String
     },
     balanceAfter: {
-      type: Number,
-      required: true
+      type: Number
     },
     typeBalanceAfter: {
-      type: String,
-      required: true
+      type: String
     }
   },
   {
