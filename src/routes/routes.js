@@ -195,7 +195,7 @@ router.post("/login", UserController.userLogin);
  *                  type: boolean
  *                  example: false
  */
-// router.get("/logout", passportCheck, UserController.userLogout);
+router.get("/logout", UserController.userLogout);
 // router.put("/change", passportCheck, UserController.userChangePassword);
 // router.get("/user", passportCheck, UserController.getUser);
 // router.put("/user/:id", passportCheck, UserController.updateUser);
@@ -260,7 +260,7 @@ router.post("/login", UserController.userLogin);
  *                  type: boolean
  *                  example: false
  */
-router.get("/finance/:userId", passportCheck, UserFinance.getFinance);
+router.get("/finance", passportCheck, UserFinance.getFinance);
 /**
  * @swagger
  *
@@ -350,7 +350,7 @@ router.get("/finance/:userId", passportCheck, UserFinance.getFinance);
  *                  type: boolean
  *                  example: false
  */
-router.post("/finance/:userId", UserFinance.saveFinance);
+router.post("/finance", passportCheck, UserFinance.saveFinance);
 
 // /**
 //  * @swagger

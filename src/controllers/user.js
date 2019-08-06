@@ -30,18 +30,18 @@ module.exports.userRegister = (req, res) => {
   const error = [];
 
   if (!email || !password || !name) {
-    error.push({ message: "Please enter email and password and name." });
+    error.push("Please enter email and password and name.");
   } else {
     // Check basic creteria to password field for create user must
     if (password.length < 6) {
-      error.push({ message: "Password must be at least 6 characters" });
+      error.push("Password must be at least 6 characters");
     }
   }
 
   if (error.length > 0) {
     res.status(400).json({
       success: false,
-      message: error.message
+      message: error
     });
   } else {
     User.findOne({ email: email }).then(user => {
@@ -87,10 +87,20 @@ module.exports.userRegister = (req, res) => {
               });
             }
 
+            const userData = {
+              id: String(user._id),
+              email: user.email,
+              name: user.name,
+              createdAt: user.createdAt
+            };
+            const token = jwt.sign( userData, config.jwt_encryption);
+
             res.status(200).json({
               success: true,
               message:
-                "Successfully created new user and his Finance Data. You can Login"
+                "Successfully created new user and his Finance Data. You can Login",
+              token: token,
+              user: userData
             });
           });
         });

@@ -1,7 +1,7 @@
 const UserFinance = require("../models/UserFinance.model");
 
 module.exports.getFinance = (req, res) => {
-  const userId = req.params.userId;
+  const userId = req.user._id;
 
   UserFinance.findOne({ userId }).then(doc => {
     if (!doc) {
@@ -20,7 +20,7 @@ module.exports.getFinance = (req, res) => {
 };
 
 module.exports.saveFinance = (req, res) => {
-  const userId = req.params.userId;
+  const userId = req.user._id;
 
   const newData = {
     date: req.body.date,
