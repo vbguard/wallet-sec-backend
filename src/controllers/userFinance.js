@@ -14,7 +14,8 @@ module.exports.getFinance = (req, res) => {
     res.status(200).json({
       success: true,
       message: "Data found with this ID",
-      finance: doc
+      finance: doc,
+      user: { name: req.user.name, email: req.user.email }
     });
   });
 };
