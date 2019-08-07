@@ -50,6 +50,7 @@ module.exports.saveFinance = (req, res) => {
     res.status(200).json({
       success: true,
       message: "Data found with this ID",
+      user: { name: req.user.name, email: req.user.email },
       finance: doc
     });
   });
